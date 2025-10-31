@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "hr.fer.tel.rassus.examples";
+
+package hr.fer.tel.rassus;
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+
+message NewReading {
+  float temperature= 1;
+  float pressure = 2;
+  float humidity = 3;
+  float co = 4;
+  float no2 = 5;
+  float so2 = 6;
+}
+
+service ReadingService{
+  rpc getReading(google.protobuf.Empty) returns (NewReading) {}
+}
